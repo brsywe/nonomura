@@ -26,7 +26,7 @@ Plugin.create(:nonomura) do
     opt.messages.each do |message|
       to_name = message.user.idname
       msg = "@#{to_name} #{nonomura.sample}"
-      Service.primary.post(:message => msg, :replyto => message)
+      message.post(message: msg)
     end
   end
 end
