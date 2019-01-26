@@ -26,7 +26,8 @@ Plugin.create(:nonomura) do
     opt.messages.each do |message|
       to_name = message.user.idname
       msg = "@#{to_name} #{nonomura.sample}"
-      message.post(message: msg)
+      world, = Plugin.filtering(:world_current, nil)
+      compose(world, message, body: msg)
     end
   end
 end
